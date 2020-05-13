@@ -1,6 +1,8 @@
 import app from 'firebase/app'
 import 'firebase/auth'
+import 'firebase/database'
 
+console.log(process.env.REACT_APP_DATABASE_URL)
 const config = {
   apiKey: process.env.REACT_APP_API_KEY,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
@@ -14,6 +16,7 @@ class Firebase {
   constructor() {
     app.initializeApp(config)
     this.auth = app.auth()
+    this.db = app.database()
   }
 
   doCreateUserWithEmailAndPassword = (email, password) => this.auth.createUserWithEmailAndPassword(email, password)
@@ -27,6 +30,12 @@ class Firebase {
   doPasswordReset = email => this.auth.sendPasswordResetEmail(email)
 
   doPasswordUpdate = password => this.auth.currentUser.updatePassword(password)
+
+  // Users API 
+
+  user = uid => this.db.ref(`users/${uid}`)
+
+  users = () => this.db.ref('users')
 }
 
 export default Firebase
