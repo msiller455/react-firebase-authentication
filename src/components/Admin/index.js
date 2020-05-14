@@ -46,6 +46,7 @@ class AdminPage extends Component {
         )
     }
 }
+
 const UserList =({ users }) => (
     <ul>
         {users.map(user => (

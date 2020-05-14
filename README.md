@@ -1,1 +1,4 @@
-Practice setting up a firebase database with React front end.
+# Firebase and React Set up
+
+
+Project tutorial for setting up React client with Firebase Authorization and Realtime Database. 
