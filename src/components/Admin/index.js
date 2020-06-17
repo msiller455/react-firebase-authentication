@@ -34,7 +34,6 @@ class AdminPage extends Component {
 
     render() {
         const { users, loading } = this.state
-        console.log(users)
         return (
             <div>
                 <h1>Admin</h1>
